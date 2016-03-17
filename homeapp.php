@@ -21,6 +21,47 @@ p    {
 
 </style>
 
+<?php require_once("homeheader.php"); ?>
+
+		<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Brand</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+		
+		  <ul class="nav navbar-nav">
+			
+			<li class="active">
+				<a href="homeapp.php">
+					Get my BMI
+				</a>
+			</li>
+			
+			
+			<li>
+				<a href="table2.php">
+					My progress
+				</a>
+			</li>
+			
+		  </ul> 
+		  
+		</div><!-- /.navbar-collapse -->
+	  </div><!-- /.container-fluid -->
+	</nav>
+
+	<div class="container">
+	
 <h2> First application (BMI)</h2>
 
 <p>My idea is to create a personal app for tracking your body mass index (BMI). After inputing your parameters, the app will let you know if your body mass index
@@ -54,9 +95,9 @@ and leave positive comments /send reminders. The app could be accessible after e
 		if(empty($_GET["gender"])){
 			//it is empty
 			echo "Please choose your gender!";
-	}else{
-			//its not empty
-			echo "Gender: ".$_GET["gender"]."<br>"; 
+		}else{
+				//its not empty
+				echo "Gender: ".$_GET["gender"]."<br>"; 
 		}
 		
 	}else{
@@ -71,11 +112,8 @@ and leave positive comments /send reminders. The app could be accessible after e
 	<input type="number" name="age" min="1" max="130" ><br>
 
 <?php	
-	//required another php file
-	require_once("../../config.php");
+
 	
-	
-		$everything_was_okay = true;
 	//for Age* field:
 	if(isset($_GET["age"])){
 		
@@ -86,6 +124,7 @@ and leave positive comments /send reminders. The app could be accessible after e
 		if(empty($_GET["age"])){
 			//it is empty
 			echo "Please enter your age!";
+			$everything_was_okay = false;
 	}else{
 			//its not empty
 			echo "Age: ".$_GET["age"]."<br>";
@@ -102,11 +141,6 @@ and leave positive comments /send reminders. The app could be accessible after e
 	<input type="number" name="height" min="50" max="250"><br>
 
 <?php	
-	//required another php file
-	require_once("../../config.php");
-
-
-	$everything_was_okay = true;
 	//for Height* field:
 	if(isset($_GET["height"])){
 		
@@ -117,6 +151,7 @@ and leave positive comments /send reminders. The app could be accessible after e
 		if(empty($_GET["height"])){
 			//it is empty
 			echo "Please enter your height!";
+			$everything_was_okay = false;
 	}else{
 			//its not empty
 			echo "Height: ".$_GET["height"]."<br>";
@@ -134,12 +169,6 @@ and leave positive comments /send reminders. The app could be accessible after e
 	<input type="number" name="weight" min="15" max="600"><br><br>
 
 <?php	
-
-	//required another php file
-	require_once("../../config.php");
-
-
-	$everything_was_okay = true;
 		//for Weight* field:
 	if(isset($_GET["weight"])){
 		
@@ -150,6 +179,7 @@ and leave positive comments /send reminders. The app could be accessible after e
 		if(empty($_GET["weight"])){
 			//it is empty
 			echo "Please enter your weight!";
+			$everything_was_okay = false;
 	}else{
 			//its not empty
 			echo "Weight: ".$_GET["weight"]."<br>";
@@ -162,7 +192,7 @@ and leave positive comments /send reminders. The app could be accessible after e
 	
 ?>
 
-	<br><input type="submit" value="Get my BMI"> 
+	<br><input type="submit" class='btn btn-primary' value="Get my BMI"> 
 </form>
 <?php
 	if($everything_was_okay == true){
@@ -200,4 +230,3 @@ and leave positive comments /send reminders. The app could be accessible after e
 	}
 ?>
 
-<a href="table2.php">table</a>

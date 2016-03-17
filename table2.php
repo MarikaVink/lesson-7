@@ -1,3 +1,5 @@
+<?php require_once("homeheader.php"); ?>
+
 <?php
 //table.php
 
@@ -6,7 +8,6 @@ require_once("../../config.php");
 
 //create connection_aborted
 $mysql = new mysqli("localhost",$db_username, $db_password,"webpr2016_marvin");
-
 
 /*
 IF THERE IS ?DELETE=ROW_ID in the url
@@ -48,7 +49,7 @@ $stmt->execute();
 
 $table2_html = "";
 
-$table2_html .="<table>";
+$table2_html .="<table class='table table-striped'>";
 	$table2_html .="<tr>";
 $table2_html .="<th>ID</th>";
 $table2_html .="<th>Gender</th>";
@@ -72,17 +73,77 @@ $table2_html .="<td>".$age."</td>";
 $table2_html .="<td>".$height."</td>";
 $table2_html .="<td>".$weight."</td>";
 $table2_html .="<td>".$created."</td>";
-$table2_html .="<td><a href='?delete=".$id."'>X</a></td>";
+$table2_html .="<td><a class='btn btn-danger' href='?delete=".$id."'>X</a></td>";
 $table2_html .="</tr>"; //end row
 	
 	
 }
 $table2_html .="</table>";
-echo $table2_html;
+
 
 ?>
 
+	<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Brand</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+		
+		  <ul class="nav navbar-nav">
+			
+			<li >
+				<a href="homeapp.php">
+					Get my BMI
+				</a>
+			</li>
+			
+			
+			<li class="active">
+				<a href="table2.php">
+					My progress
+				</a>
+			</li>
+			
+		  </ul> 
+		  
+		</div><!-- /.navbar-collapse -->
+	  </div><!-- /.container-fluid -->
+	</nav>
+
+	<div class="container">
+
+		<h1> My progress </h1>
+		
+		<?php echo $table2_html; ?>
+		
+		
+		</div>
+
+  </body>
+</html>
 
 
 
-<a href="homeapp.php">app</a>
+
+
+
+
+
+
+
+
+
+
+
+
+
